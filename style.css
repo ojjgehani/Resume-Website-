@@ -1,7 +1,12 @@
 /* ==========================================================
    Ojj Gehani - resume website
-   Palette: warm off-white background, near-black text,
-   one navy accent (blue = trust), light grey hairlines.
+   Palette: deep forest green (growth) with a warm cream page,
+   one terracotta accent (used sparingly, for emphasis),
+   warm grey hairlines.
+     green       #1f3329  (header, nav, contact band)
+     cream       #f6f1e7  (page)   /  #f3eee2 (text on green)
+     terracotta  #d98a52  /  soft peach #f1dfc6 (highlights)
+     grey text   #6b665c
    Fonts: Lora (serif) for headings, Inter (sans serif) for text.
    ========================================================== */
 
@@ -19,8 +24,8 @@ body {
     font-family: "Inter", Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.7;
-    color: #1f1f1d;
-    background-color: #fbfaf7;
+    color: #1f1f1a;
+    background-color: #f6f1e7;
 }
 
 /* Grouping selector: the same heading font for all headings */
@@ -31,12 +36,18 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 3.25rem;
+    font-size: 4.5rem;
 }
 
+/* Section labels: small, spaced-out capitals in navy */
 h2 {
-    font-size: 1.2rem;
-    color: #1f3a5f;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1f3329;
+    line-height: 1.6;
 }
 
 h3 {
@@ -45,7 +56,7 @@ h3 {
 
 /* Highlighted text when the visitor selects something */
 ::selection {
-    background-color: #1f3a5f;
+    background-color: #1f3329;
     color: #ffffff;
 }
 
@@ -63,8 +74,8 @@ h3 {
 #navbar {
     position: sticky;
     top: 0;
-    background-color: #fbfaf7;
-    border-bottom: 1px solid #deddd7;
+    background-color: #1f3329;
+    border-bottom: 1px solid #34503f;
 }
 
 /* Flexbox: name on the left, links on the right */
@@ -80,7 +91,7 @@ h3 {
     font-family: "Lora", Georgia, serif;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #1f1f1d;
+    color: #f3eee2;
     text-decoration: none;
 }
 
@@ -92,71 +103,100 @@ h3 {
 
 .nav-links a {
     font-size: 0.9rem;
-    color: #6b6b66;
+    color: #b3c2b6;
     text-decoration: none;
     padding-bottom: 0.2rem;
     border-bottom: 1px solid transparent;
 }
 
 .nav-links a:hover {
-    color: #1f1f1d;
-    border-bottom: 1px solid #1f3a5f;
+    color: #ffffff;
+    border-bottom: 1px solid #d98a52;
 }
 
 
-/* ---------- Header (name and tagline) ---------- */
+/* ---------- Header (name, tagline, quick facts) ---------- */
 
 #top {
-    padding: 6rem 0 5rem 0;
+    background-color: #1f3329;
+    padding: 6rem 0 3.5rem 0;
 }
 
 .eyebrow {
     font-size: 0.85rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #6b6b66;
-    margin-bottom: 1rem;
+    color: #d98a52;
+    margin-bottom: 1.25rem;
+}
+
+#top h1 {
+    color: #f3eee2;
 }
 
 /* Adjacent sibling selector: the paragraph right after the h1 */
 h1 + p {
-    margin-top: 1.25rem;
+    margin-top: 1.5rem;
     max-width: 32rem;
     font-size: 1.2rem;
-    color: #3d3d3a;
+    color: #cdd5c9;
 }
 
 .actions {
-    margin-top: 2rem;
+    margin-top: 2.25rem;
 }
 
 /* inline-block: sits in a line but accepts padding, width and height */
 .button {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
+    padding: 0.8rem 1.6rem;
     margin-right: 0.75rem;
     margin-bottom: 0.5rem;
-    border: 1px solid #1f3a5f;
+    border: 1px solid #cdd5c9;
     font-size: 0.95rem;
     font-weight: 500;
-    color: #1f3a5f;
+    color: #f3eee2;
     text-decoration: none;
 }
 
 /* Multiple classes: every button shares .button, the main one adds .primary */
 .button.primary {
-    background-color: #1f3a5f;
-    color: #ffffff;
+    background-color: #d98a52;
+    border: 1px solid #d98a52;
+    color: #1f3329;
 }
 
 .button:hover {
-    background-color: #1f3a5f;
-    color: #ffffff;
+    background-color: #f3eee2;
+    border: 1px solid #f3eee2;
+    color: #1f3329;
 }
 
-.button.primary:hover {
-    background-color: #fbfaf7;
-    color: #1f3a5f;
+/* Quick facts: a row of four numbers, spread across the width */
+.facts {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #34503f;
+    list-style: none;
+}
+
+.fact-number {
+    display: block;
+    font-family: "Lora", Georgia, serif;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    color: #d98a52;
+}
+
+.fact-label {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #9fb3a5;
 }
 
 
@@ -167,8 +207,13 @@ main section {
     display: grid;
     grid-template-columns: 11rem 1fr;
     gap: 2rem;
-    padding: 4rem 0;
-    border-top: 1px solid #deddd7;
+    padding: 4.5rem 0;
+    border-top: 1px solid #ddd5c4;
+}
+
+/* The first section sits right under the dark header, so no line is needed */
+main section:nth-of-type(1) {
+    border-top: none;
 }
 
 /* Descendant selectors: only elements inside .content */
@@ -185,11 +230,13 @@ main section {
     margin-top: 0.35rem;
 }
 
-.content a {
-    color: #1f3a5f;
+/* Text links inside paragraphs (the buttons are not inside a paragraph,
+   so they keep their own colours) */
+.content p a {
+    color: #1f3329;
 }
 
-.content a:hover {
+.content p a:hover {
     color: #000000;
 }
 
@@ -199,6 +246,11 @@ main section {
 
 .content h3 + p {
     margin-top: 0.25rem;
+}
+
+/* A soft gold marker on key phrases (span = inline, so the text flow is not broken) */
+.highlight {
+    background-color: #f1dfc6;
 }
 
 
@@ -218,12 +270,12 @@ main section {
 
 .date {
     font-size: 0.9rem;
-    color: #6b6b66;
+    color: #6b665c;
 }
 
 .detail {
     font-size: 0.95rem;
-    color: #6b6b66;
+    color: #6b665c;
 }
 
 
@@ -234,14 +286,18 @@ main section {
     gap: 1.5rem;
 }
 
+/* A gold edge on the left, so the cards stand out from the page */
 .card {
-    padding: 1.5rem;
-    background-color: #ffffff;
-    border: 1px solid #deddd7;
+    padding: 1.75rem;
+    background-color: #fbf8f1;
+    border: 1px solid #ddd5c4;
+    border-left: 4px solid #d98a52;
 }
 
+/* On hover the whole border turns navy */
 .card:hover {
-    border: 1px solid #1f3a5f;
+    border: 1px solid #1f3329;
+    border-left: 4px solid #1f3329;
 }
 
 .card .detail {
@@ -261,7 +317,7 @@ th, td {
     text-align: left;
     vertical-align: top;
     padding: 0.85rem 1rem 0.85rem 0;
-    border-bottom: 1px solid #deddd7;
+    border-bottom: 1px solid #ddd5c4;
 }
 
 th {
@@ -269,7 +325,7 @@ th {
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #6b6b66;
+    color: #6b665c;
 }
 
 /* First cell of every row */
@@ -279,7 +335,27 @@ td:nth-of-type(1) {
 }
 
 
-/* ---------- Contact ---------- */
+/* ---------- Contact band (dark, like the header) ---------- */
+
+.contact-band {
+    background-color: #1f3329;
+    padding: 4.5rem 0 3rem 0;
+}
+
+/* Same two-column grid as the other sections */
+.band-grid {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 2rem;
+}
+
+.contact-band h2 {
+    color: #d98a52;
+}
+
+.contact-band p {
+    color: #cdd5c9;
+}
 
 .contact-line {
     margin-top: 0.5rem;
@@ -289,20 +365,35 @@ td:nth-of-type(1) {
     display: inline-block;
     width: 5.5rem;
     font-size: 0.9rem;
-    color: #6b6b66;
+    color: #9fb3a5;
+}
+
+/* Text links inside the dark band need light text */
+.contact-band .content p a {
+    color: #f3eee2;
+}
+
+.contact-band .content p a:hover {
+    color: #d98a52;
+}
+
+/* The LinkedIn button sits a little closer to the lines above it */
+.contact-band .actions {
+    margin-top: 1.75rem;
 }
 
 
 /* ---------- Footer ---------- */
 
 footer {
-    border-top: 1px solid #deddd7;
+    background-color: #1f3329;
 }
 
 footer p {
-    padding: 2rem 0 3rem 0;
+    padding: 1.5rem 0 2rem 0;
+    border-top: 1px solid #34503f;
     font-size: 0.85rem;
-    color: #6b6b66;
+    color: #9fb3a5;
 }
 
 
@@ -327,18 +418,33 @@ footer p {
     }
 
     #top {
-        padding: 3.5rem 0 3rem 0;
+        padding: 3.5rem 0 2.5rem 0;
     }
 
     h1 {
-        font-size: 2.4rem;
+        font-size: 3rem;
     }
 
-    /* Two-column grid becomes one column */
-    main section {
+    /* Quick facts become a 2 x 2 grid */
+    .facts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.75rem 1rem;
+        margin-top: 2.5rem;
+    }
+
+    /* Two-column grids become one column */
+    main section, .band-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    main section {
         padding: 3rem 0;
+    }
+
+    .contact-band {
+        padding: 3rem 0 2rem 0;
     }
 
     .entry-head {
