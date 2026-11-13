@@ -1,0 +1,353 @@
+/* ==========================================================
+   Ojj Gehani - resume website
+   Palette: warm off-white background, near-black text,
+   one navy accent (blue = trust), light grey hairlines.
+   Fonts: Lora (serif) for headings, Inter (sans serif) for text.
+   ========================================================== */
+
+
+/* ---------- Basics ---------- */
+
+/* Universal selector: remove the browser's default margin and padding.
+   Spacing is then added back deliberately where it is needed. */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #1f1f1d;
+    background-color: #fbfaf7;
+}
+
+/* Grouping selector: the same heading font for all headings */
+h1, h2, h3 {
+    font-family: "Lora", Georgia, serif;
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: 3.25rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    color: #1f3a5f;
+}
+
+h3 {
+    font-size: 1.1rem;
+}
+
+/* Highlighted text when the visitor selects something */
+::selection {
+    background-color: #1f3a5f;
+    color: #ffffff;
+}
+
+/* Keeps content in a centred column, about 52rem wide */
+.wrapper {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+
+/* ---------- Navigation bar ---------- */
+
+/* sticky: the bar scrolls with the page, then stays at the top */
+#navbar {
+    position: sticky;
+    top: 0;
+    background-color: #fbfaf7;
+    border-bottom: 1px solid #deddd7;
+}
+
+/* Flexbox: name on the left, links on the right */
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.brand {
+    font-family: "Lora", Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f1f1d;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    color: #6b6b66;
+    text-decoration: none;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid transparent;
+}
+
+.nav-links a:hover {
+    color: #1f1f1d;
+    border-bottom: 1px solid #1f3a5f;
+}
+
+
+/* ---------- Header (name and tagline) ---------- */
+
+#top {
+    padding: 6rem 0 5rem 0;
+}
+
+.eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6b6b66;
+    margin-bottom: 1rem;
+}
+
+/* Adjacent sibling selector: the paragraph right after the h1 */
+h1 + p {
+    margin-top: 1.25rem;
+    max-width: 32rem;
+    font-size: 1.2rem;
+    color: #3d3d3a;
+}
+
+.actions {
+    margin-top: 2rem;
+}
+
+/* inline-block: sits in a line but accepts padding, width and height */
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    margin-right: 0.75rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #1f3a5f;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #1f3a5f;
+    text-decoration: none;
+}
+
+/* Multiple classes: every button shares .button, the main one adds .primary */
+.button.primary {
+    background-color: #1f3a5f;
+    color: #ffffff;
+}
+
+.button:hover {
+    background-color: #1f3a5f;
+    color: #ffffff;
+}
+
+.button.primary:hover {
+    background-color: #fbfaf7;
+    color: #1f3a5f;
+}
+
+
+/* ---------- Sections ---------- */
+
+/* Grid: section title in a narrow left column, content on the right */
+main section {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 2rem;
+    padding: 4rem 0;
+    border-top: 1px solid #deddd7;
+}
+
+/* Descendant selectors: only elements inside .content */
+.content p + p {
+    margin-top: 1rem;
+}
+
+.content ul {
+    padding-left: 1.25rem;
+    margin-top: 0.75rem;
+}
+
+.content li {
+    margin-top: 0.35rem;
+}
+
+.content a {
+    color: #1f3a5f;
+}
+
+.content a:hover {
+    color: #000000;
+}
+
+.subheading {
+    margin-top: 2rem;
+}
+
+.content h3 + p {
+    margin-top: 0.25rem;
+}
+
+
+/* ---------- Education and leadership entries ---------- */
+
+.entry + .entry {
+    margin-top: 2rem;
+}
+
+/* Flexbox: title on the left, date on the right */
+.entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.date {
+    font-size: 0.9rem;
+    color: #6b6b66;
+}
+
+.detail {
+    font-size: 0.95rem;
+    color: #6b6b66;
+}
+
+
+/* ---------- Project cards ---------- */
+
+.cards {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.card {
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #deddd7;
+}
+
+.card:hover {
+    border: 1px solid #1f3a5f;
+}
+
+.card .detail {
+    margin-bottom: 1rem;
+}
+
+
+/* ---------- Skills table ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.85rem 1rem 0.85rem 0;
+    border-bottom: 1px solid #deddd7;
+}
+
+th {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #6b6b66;
+}
+
+/* First cell of every row */
+td:nth-of-type(1) {
+    width: 9.5rem;
+    font-weight: 500;
+}
+
+
+/* ---------- Contact ---------- */
+
+.contact-line {
+    margin-top: 0.5rem;
+}
+
+.label {
+    display: inline-block;
+    width: 5.5rem;
+    font-size: 0.9rem;
+    color: #6b6b66;
+}
+
+
+/* ---------- Footer ---------- */
+
+footer {
+    border-top: 1px solid #deddd7;
+}
+
+footer p {
+    padding: 2rem 0 3rem 0;
+    font-size: 0.85rem;
+    color: #6b6b66;
+}
+
+
+/* ---------- Mobile (screens up to 700px wide) ---------- */
+
+@media (max-width: 700px) {
+
+    /* The bar no longer sticks, so it does not cover the content on a small screen */
+    #navbar {
+        position: static;
+    }
+
+    .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 0.5rem 1.25rem;
+    }
+
+    #top {
+        padding: 3.5rem 0 3rem 0;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    /* Two-column grid becomes one column */
+    main section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 3rem 0;
+    }
+
+    .entry-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    td:nth-of-type(1) {
+        width: 6.5rem;
+    }
+}
